@@ -52,13 +52,13 @@ export const contentPacks: ContentPack[] = [
     isNew: false
   },
   {
-    id: 'bollywood-edits',
-    title: 'Bollywood Edit Pack',
-    description: 'Dramatic and emotional scenes from popular Bollywood movies',
-    category: 'movie',
-    image: 'https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    clipCount: 36,
-    downloads: 19876,
+    id: 'minecraft-parkour',
+    title: 'Minecraft Parkour Pack',
+    description: 'Epic parkour runs and challenging obstacle courses in Minecraft',
+    category: 'gaming',
+    image: 'https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    clipCount: 42,
+    downloads: 21543,
     isNew: true
   }
 ];
