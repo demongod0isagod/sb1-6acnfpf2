@@ -11,9 +11,7 @@ const PricingSection = () => {
         '50 AI videos per month',
         '40 minutes of export',
         '30 voiceover minutes',
-        '100 AI images',
-        'Basic analytics',
-        'Community support'
+        '100 AI images'
       ]
     },
     {
@@ -26,9 +24,7 @@ const PricingSection = () => {
         '150 AI videos per month',
         '2 hours of export',
         '120 voiceover minutes',
-        '300 AI images',
-        'Priority support',
-        'Advanced analytics'
+        '300 AI images'
       ]
     },
     {
@@ -40,9 +36,7 @@ const PricingSection = () => {
         '250 AI videos per month',
         '3 hours of export',
         '180 voiceover minutes',
-        '500 AI images',
-        'API access',
-        'Custom templates'
+        '500 AI images'
       ]
     },
     {
@@ -51,12 +45,10 @@ const PricingSection = () => {
       period: '/mo',
       description: 'For teams and businesses',
       features: [
-        'Unlimited AI videos',
-        'Unlimited export time',
-        'Unlimited voiceover',
-        'Unlimited AI images',
-        'Dedicated manager',
-        'Custom AI training'
+        '500 AI videos per month',
+        '10 hours of export',
+        '600 voiceover minutes',
+        '1000 AI images'
       ]
     }
   ];

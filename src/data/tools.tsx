@@ -8,7 +8,7 @@ import {
   Bot, 
   FileSpreadsheet, 
   MessageCircle, 
-  Layout, 
+  Diamond, 
   Radio,
   Video
 } from 'lucide-react';
@@ -16,10 +16,10 @@ import { Tool } from '../types';
 
 export const AITools: Tool[] = [
   {
-    id: 'reel-generator',
-    name: 'Reel Generator',
+    id: 'reel-factory',
+    name: 'Reel Factory',
     description: 'Transform your ideas into engaging reels in seconds',
-    emoji: '🎬',
+    emoji: '🏭',
     icon: <Video size={24} />,
     category: 'Video',
     gradient: 'from-purple-500 to-pink-500',
@@ -90,7 +90,7 @@ export const AITools: Tool[] = [
   {
     id: 'trend-snipe',
     name: 'TrendSnipe',
-    description: 'Create captions based on current trending topics',
+    description: 'Finding trending topics so you don\'t miss',
     emoji: '📈',
     icon: <TrendingUp size={24} />,
     category: 'Strategy',
@@ -102,7 +102,7 @@ export const AITools: Tool[] = [
   {
     id: 'auto-agency',
     name: 'AutoAgency',
-    description: 'Automatically generate and schedule content posts',
+    description: 'Post videos automatically',
     emoji: '🤖',
     icon: <Bot size={24} />,
     category: 'Automation',
@@ -136,12 +136,12 @@ export const AITools: Tool[] = [
     isNew: false
   },
   {
-    id: 'carousel-master',
-    name: 'CarouselMaster',
-    description: 'Create engaging carousel posts with AI-generated content',
-    emoji: '📊',
-    icon: <Layout size={24} />,
-    category: 'Design',
+    id: 'digital-market',
+    name: 'Digital Market',
+    description: 'Sell digital products and monetize your content',
+    emoji: '💎',
+    icon: <Diamond size={24} />,
+    category: 'Marketplace',
     gradient: 'from-teal-500 to-cyan-500',
     bgColor: 'bg-teal-500',
     bgColorHover: 'bg-teal-600',
