@@ -27,7 +27,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Crown className="w-8 h-8 text-yellow-500" />
-          <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400 text-transparent bg-clip-text">
+          <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-pink-400 text-transparent bg-clip-text">
             Kingg
           </span>
         </div>

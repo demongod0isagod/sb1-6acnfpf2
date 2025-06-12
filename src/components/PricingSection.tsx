@@ -8,7 +8,7 @@ const PricingSection = () => {
       period: '/mo',
       description: 'Perfect for getting started',
       features: [
-        '50 AI videos per month',
+        '15 Auto video reel machine vid per month',
         '40 minutes of export',
         '30 voiceover minutes',
         '100 AI images'
@@ -21,7 +21,7 @@ const PricingSection = () => {
       description: 'Most popular for creators',
       isPopular: true,
       features: [
-        '150 AI videos per month',
+        '25 Auto video reel machine vid per month',
         '2 hours of export',
         '120 voiceover minutes',
         '300 AI images'
@@ -33,7 +33,7 @@ const PricingSection = () => {
       period: '/mo',
       description: 'For power users',
       features: [
-        '250 AI videos per month',
+        '75 Auto video reel machine vid per month',
         '3 hours of export',
         '180 voiceover minutes',
         '500 AI images'
@@ -45,7 +45,7 @@ const PricingSection = () => {
       period: '/mo',
       description: 'For teams and businesses',
       features: [
-        '500 AI videos per month',
+        '200 Auto video reel machine vid per month',
         '10 hours of export',
         '600 voiceover minutes',
         '1000 AI images'

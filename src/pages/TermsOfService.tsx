@@ -1,7 +1,20 @@
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 const TermsOfService = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-white dark:bg-black py-16 px-4">
       <div className="container mx-auto max-w-4xl">
+        <button
+          onClick={() => navigate('/')}
+          className="flex items-center gap-2 mb-8 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+        >
+          <ArrowLeft size={20} />
+          <span>Back to Home</span>
+        </button>
+        
         <h1 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">Terms of Service</h1>
         <div className="prose dark:prose-invert max-w-none">
           <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">Last Updated: January 1, 2025</p>

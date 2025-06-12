@@ -1,5 +1,4 @@
 import {
-  Hash,
   Share2,
   SplitSquareVertical,
   Tv2,
@@ -9,18 +8,6 @@ import {
 import { Feature } from '../types';
 
 export const features: Feature[] = [
-  {
-    id: 'export-options',
-    title: 'Export with Hashtags & Watermark',
-    description: 'Export your content with optimized hashtags and optional watermark',
-    icon: <Hash size={24} />,
-    benefits: [
-      'Automatic hashtag recommendations based on content',
-      'Customizable watermark placement and opacity',
-      'Multiple export formats (MP4, GIF, etc.)',
-      'Caption generator with trending keywords'
-    ]
-  },
   {
     id: 'auto-publish',
     title: 'Auto Publish to Social Media',

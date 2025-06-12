@@ -51,9 +51,9 @@ const Hero = () => {
           {/* Hero crown doodle art */}
           <div className="flex-1 w-full max-w-lg">
             <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transition-all">
-              <div className="aspect-video bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center">
+              <div className="aspect-video bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center p-8">
                 {/* Crown Doodle Art */}
-                <svg width="240" height="180" viewBox="0 0 240 180" className="animate-pulse">
+                <svg width="280" height="200" viewBox="0 0 280 200" className="animate-pulse">
                   <defs>
                     <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#3b82f6" />
@@ -67,44 +67,52 @@ const Hero = () => {
                   </defs>
                   
                   {/* Crown base */}
-                  <path d="M40 120 L200 120 L190 145 L50 145 Z" fill="url(#crownGradient)" stroke="#1e40af" strokeWidth="2"/>
+                  <path d="M50 130 L230 130 L220 155 L60 155 Z" fill="url(#crownGradient)" stroke="#1e40af" strokeWidth="3"/>
                   
                   {/* Crown points */}
-                  <path d="M40 120 L65 70 L85 95 L120 50 L155 95 L175 70 L200 120" fill="url(#crownGradient)" stroke="#1e40af" strokeWidth="2"/>
+                  <path d="M50 130 L75 75 L95 105 L140 55 L185 105 L205 75 L230 130" fill="url(#crownGradient)" stroke="#1e40af" strokeWidth="3"/>
                   
                   {/* Main center gem */}
-                  <circle cx="120" cy="80" r="12" fill="url(#gemGradient)" stroke="#d97706" strokeWidth="2"/>
-                  <circle cx="120" cy="80" r="6" fill="#fef3c7" opacity="0.8"/>
+                  <circle cx="140" cy="85" r="15" fill="url(#gemGradient)" stroke="#d97706" strokeWidth="3"/>
+                  <circle cx="140" cy="85" r="8" fill="#fef3c7" opacity="0.8"/>
                   
                   {/* Side gems */}
-                  <circle cx="75" cy="105" r="8" fill="#ef4444" stroke="#dc2626" strokeWidth="1"/>
-                  <circle cx="165" cy="105" r="8" fill="#10b981" stroke="#059669" strokeWidth="1"/>
+                  <circle cx="85" cy="115" r="10" fill="#ef4444" stroke="#dc2626" strokeWidth="2"/>
+                  <circle cx="195" cy="115" r="10" fill="#10b981" stroke="#059669" strokeWidth="2"/>
                   
                   {/* Small decorative gems */}
-                  <circle cx="95" cy="85" r="4" fill="#8b5cf6" stroke="#7c3aed" strokeWidth="1"/>
-                  <circle cx="145" cy="85" r="4" fill="#06b6d4" stroke="#0891b2" strokeWidth="1"/>
+                  <circle cx="105" cy="90" r="5" fill="#8b5cf6" stroke="#7c3aed" strokeWidth="1"/>
+                  <circle cx="175" cy="90" r="5" fill="#06b6d4" stroke="#0891b2" strokeWidth="1"/>
                   
                   {/* Crown band decoration */}
-                  <rect x="60" y="125" width="6" height="6" fill="#fbbf24" transform="rotate(45 63 128)"/>
-                  <rect x="90" y="125" width="6" height="6" fill="#fbbf24" transform="rotate(45 93 128)"/>
-                  <rect x="120" y="125" width="6" height="6" fill="#fbbf24" transform="rotate(45 123 128)"/>
-                  <rect x="150" y="125" width="6" height="6" fill="#fbbf24" transform="rotate(45 153 128)"/>
-                  <rect x="180" y="125" width="6" height="6" fill="#fbbf24" transform="rotate(45 183 128)"/>
+                  <rect x="70" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 74 139)"/>
+                  <rect x="110" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 114 139)"/>
+                  <rect x="140" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 144 139)"/>
+                  <rect x="170" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 174 139)"/>
+                  <rect x="210" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 214 139)"/>
                   
                   {/* Sparkles around crown */}
                   <g fill="#fbbf24" opacity="0.8">
-                    <path d="M25 60 L27 64 L31 62 L27 66 L25 70 L23 66 L19 62 L23 64 Z"/>
-                    <path d="M215 80 L217 84 L221 82 L217 86 L215 90 L213 86 L209 82 L213 84 Z"/>
-                    <path d="M50 35 L52 39 L56 37 L52 41 L50 45 L48 41 L44 37 L48 39 Z"/>
-                    <path d="M190 45 L192 49 L196 47 L192 51 L190 55 L188 51 L184 47 L188 49 Z"/>
+                    <path d="M30 65 L33 70 L38 68 L33 73 L30 78 L27 73 L22 68 L27 70 Z"/>
+                    <path d="M250 85 L253 90 L258 88 L253 93 L250 98 L247 93 L242 88 L247 90 Z"/>
+                    <path d="M60 40 L63 45 L68 43 L63 48 L60 53 L57 48 L52 43 L57 45 Z"/>
+                    <path d="M220 50 L223 55 L228 53 L223 58 L220 63 L217 58 L212 53 L217 55 Z"/>
                   </g>
                   
                   {/* Floating sparkles with animation effect */}
                   <g fill="#3b82f6" opacity="0.6">
-                    <circle cx="35" cy="90" r="2"/>
-                    <circle cx="205" cy="110" r="2"/>
-                    <circle cx="60" cy="50" r="1.5"/>
-                    <circle cx="180" cy="60" r="1.5"/>
+                    <circle cx="40" cy="100" r="3"/>
+                    <circle cx="240" cy="120" r="3"/>
+                    <circle cx="70" cy="55" r="2"/>
+                    <circle cx="210" cy="65" r="2"/>
+                  </g>
+                  
+                  {/* Doodle-style decorative lines */}
+                  <g stroke="#6b7280" strokeWidth="2" fill="none" opacity="0.3">
+                    <path d="M20 170 Q30 165 40 170 T60 170"/>
+                    <path d="M220 170 Q230 165 240 170 T260 170"/>
+                    <path d="M15 90 Q25 85 35 90"/>
+                    <path d="M245 110 Q255 105 265 110"/>
                   </g>
                 </svg>
               </div>

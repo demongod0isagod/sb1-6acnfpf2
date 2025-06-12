@@ -13,6 +13,14 @@ export interface Tool {
   isNew: boolean;
 }
 
+export interface Clip {
+  id: string;
+  title: string;
+  thumbnail: string;
+  duration: number;
+  previewUrl: string;
+}
+
 export interface ContentPack {
   id: string;
   title: string;
@@ -20,8 +28,8 @@ export interface ContentPack {
   category: string;
   image: string;
   clipCount: number;
-  downloads: number;
   isNew: boolean;
+  clips: Clip[];
 }
 
 export interface Template {

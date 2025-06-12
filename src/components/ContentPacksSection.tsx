@@ -1,13 +1,158 @@
 import { useState } from 'react';
 import { contentPacks } from '../data/contentPacks';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play, X, ArrowLeft } from 'lucide-react';
+import { ContentPack, Clip } from '../types';
 
 const ContentPacksSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedPack, setSelectedPack] = useState<ContentPack | null>(null);
+  const [hoveredClip, setHoveredClip] = useState<string | null>(null);
+  const [previewClip, setPreviewClip] = useState<Clip | null>(null);
   
   const filteredPacks = activeCategory === 'all' 
     ? contentPacks 
     : contentPacks.filter(pack => pack.category === activeCategory);
+
+  const handlePackClick = (pack: ContentPack) => {
+    setSelectedPack(pack);
+  };
+
+  const handleClipPreview = (clip: Clip) => {
+    setPreviewClip(clip);
+  };
+
+  const closePreview = () => {
+    setPreviewClip(null);
+  };
+
+  const backToPacks = () => {
+    setSelectedPack(null);
+  };
+
+  // Generate additional clips to reach 50 per pack
+  const generateClips = (pack: ContentPack): Clip[] => {
+    const baseClips = pack.clips || [];
+    const additionalClips = [];
+    
+    for (let i = baseClips.length; i < 50; i++) {
+      additionalClips.push({
+        id: `${pack.id}-${i + 1}`,
+        title: `${pack.title} Clip ${i + 1}`,
+        thumbnail: pack.image,
+        duration: Math.floor(Math.random() * 60) + 30,
+        previewUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4'
+      });
+    }
+    
+    return [...baseClips, ...additionalClips];
+  };
+
+  if (selectedPack) {
+    const allClips = generateClips(selectedPack);
+    
+    return (
+      <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mb-8">
+            <button
+              onClick={backToPacks}
+              className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors mb-4"
+            >
+              <ArrowLeft size={20} />
+              <span>Back to Content Packs</span>
+            </button>
+            
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-blue-400 dark:to-pink-400 bg-clip-text text-transparent">
+              {selectedPack.title}
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">
+              {selectedPack.description}
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              {allClips.length} copyright-free clips available
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            {allClips.map((clip) => (
+              <div
+                key={clip.id}
+                className="group relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer"
+                onMouseEnter={() => setHoveredClip(clip.id)}
+                onMouseLeave={() => setHoveredClip(null)}
+                onClick={() => handleClipPreview(clip)}
+              >
+                <div className="aspect-video overflow-hidden relative">
+                  <img
+                    src={clip.thumbnail}
+                    alt={clip.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {hoveredClip === clip.id && (
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <Play size={20} className="text-white ml-1" />
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                    {Math.floor(clip.duration / 60)}:{(clip.duration % 60).toString().padStart(2, '0')}
+                  </div>
+                </div>
+                
+                <div className="p-3">
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2">
+                    {clip.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Video Preview Modal */}
+        {previewClip && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {previewClip.title}
+                </h3>
+                <button
+                  onClick={closePreview}
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              
+              <div className="p-4">
+                <video
+                  src={previewClip.previewUrl}
+                  controls
+                  autoPlay
+                  className="w-full aspect-video rounded-lg"
+                >
+                  Your browser does not support the video tag.
+                </video>
+                
+                <div className="mt-4 flex justify-between items-center">
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Duration: {Math.floor(previewClip.duration / 60)}:{(previewClip.duration % 60).toString().padStart(2, '0')}
+                  </span>
+                  <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    Use This Clip
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+    );
+  }
 
   return (
     <section id="packs" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
@@ -43,7 +188,8 @@ const ContentPacksSection = () => {
           {filteredPacks.map((pack) => (
             <div 
               key={pack.id}
-              className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+              className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 cursor-pointer"
+              onClick={() => handlePackClick(pack)}
             >
               <div className="relative aspect-video overflow-hidden">
                 <img 
@@ -77,18 +223,12 @@ const ContentPacksSection = () => {
                   </button>
                   
                   <div className="text-sm text-gray-500 dark:text-gray-400">
-                    {pack.isNew ? 'New' : `${pack.downloads.toLocaleString()} downloads`}
+                    {pack.isNew ? 'New' : 'Copyright Free'}
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <button className="px-6 py-3 rounded-full font-medium border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-all">
-            Browse all content packs
-          </button>
         </div>
       </div>
     </section>
