@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, Crown } from 'lucide-react';
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -25,30 +25,31 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <div className="flex items-center">
-          <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-pink-400 text-transparent bg-clip-text">
-            CreativAI
+        <div className="flex items-center space-x-2">
+          <Crown className="w-8 h-8 text-yellow-500" />
+          <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400 text-transparent bg-clip-text">
+            Kingg
           </span>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#tools" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <a href="#tools" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
             AI Tools
           </a>
-          <a href="#packs" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <a href="#packs" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
             Content Packs
           </a>
-          <a href="#templates" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            Templates
+          <a href="#templates" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+            Video Topics
           </a>
-          <a href="#features" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <a href="#features" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
             Features
           </a>
           <button
-            className="bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-pink-500 text-white px-4 py-2 rounded-full hover:shadow-lg hover:opacity-90 transition-all"
+            className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400 text-white px-4 py-2 rounded-full hover:shadow-lg hover:opacity-90 transition-all"
           >
-            Get Started
+            See How It Works
           </button>
           <button
             onClick={toggleTheme}
@@ -87,37 +88,37 @@ const Header = () => {
         <div className="container mx-auto px-4 flex flex-col space-y-4">
           <a 
             href="#tools" 
-            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 py-2 transition-colors"
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             AI Tools
           </a>
           <a 
             href="#packs" 
-            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 py-2 transition-colors"
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Content Packs
           </a>
           <a 
             href="#templates" 
-            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 py-2 transition-colors"
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
-            Templates
+            Video Topics
           </a>
           <a 
             href="#features" 
-            className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 py-2 transition-colors"
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Features
           </a>
           <button
-            className="bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-pink-500 text-white px-4 py-2 rounded-full hover:shadow-lg hover:opacity-90 transition-all"
+            className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400 text-white px-4 py-2 rounded-full hover:shadow-lg hover:opacity-90 transition-all"
             onClick={() => setIsMenuOpen(false)}
           >
-            Get Started
+            See How It Works
           </button>
         </div>
       </div>
