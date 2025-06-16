@@ -16,6 +16,22 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -34,22 +50,35 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#tools" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+          <button 
+            onClick={() => scrollToSection('tools')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
+          >
             AI Tools
-          </a>
-          <a href="#packs" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('packs')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
+          >
             Content Packs
-          </a>
-          <a href="#templates" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('templates')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
+          >
             Video Topics
-          </a>
-          <a href="#features" className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('features')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
+          >
             Features
-          </a>
+          </button>
           <button
+            onClick={scrollToPricing}
             className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400 text-white px-4 py-2 rounded-full hover:shadow-lg hover:opacity-90 transition-all"
           >
-            See How It Works
+            Get Started
           </button>
           <button
             onClick={toggleTheme}
@@ -86,39 +115,35 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-4 flex flex-col space-y-4">
-          <a 
-            href="#tools" 
-            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
-            onClick={() => setIsMenuOpen(false)}
+          <button 
+            onClick={() => scrollToSection('tools')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors text-left"
           >
             AI Tools
-          </a>
-          <a 
-            href="#packs" 
-            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
-            onClick={() => setIsMenuOpen(false)}
+          </button>
+          <button 
+            onClick={() => scrollToSection('packs')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors text-left"
           >
             Content Packs
-          </a>
-          <a 
-            href="#templates" 
-            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
-            onClick={() => setIsMenuOpen(false)}
+          </button>
+          <button 
+            onClick={() => scrollToSection('templates')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors text-left"
           >
             Video Topics
-          </a>
-          <a 
-            href="#features" 
-            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors"
-            onClick={() => setIsMenuOpen(false)}
+          </button>
+          <button 
+            onClick={() => scrollToSection('features')}
+            className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors text-left"
           >
             Features
-          </a>
+          </button>
           <button
+            onClick={scrollToPricing}
             className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400 text-white px-4 py-2 rounded-full hover:shadow-lg hover:opacity-90 transition-all"
-            onClick={() => setIsMenuOpen(false)}
           >
-            See How It Works
+            Get Started
           </button>
         </div>
       </div>

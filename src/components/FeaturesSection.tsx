@@ -2,6 +2,13 @@ import { features } from '../data/features';
 import { Check } from 'lucide-react';
 
 const FeaturesSection = () => {
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="features" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
       <div className="container mx-auto px-4 md:px-6">
@@ -57,11 +64,17 @@ const FeaturesSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 rounded-full font-medium bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-pink-500 text-white hover:shadow-lg hover:shadow-blue-500/25 dark:hover:shadow-pink-500/25 transition-all duration-300">
+              <button 
+                onClick={scrollToPricing}
+                className="px-6 py-3 rounded-full font-medium bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-pink-500 text-white hover:shadow-lg hover:shadow-blue-500/25 dark:hover:shadow-pink-500/25 transition-all duration-300"
+              >
                 Start creating for free
               </button>
               
-              <button className="px-6 py-3 rounded-full font-medium border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-all">
+              <button 
+                onClick={scrollToPricing}
+                className="px-6 py-3 rounded-full font-medium border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-all"
+              >
                 View pricing
               </button>
             </div>

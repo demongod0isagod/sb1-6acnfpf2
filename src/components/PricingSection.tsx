@@ -1,4 +1,4 @@
-import { Crown } from 'lucide-react';
+import { Crown, Check, Star } from 'lucide-react';
 
 const PricingSection = () => {
   const plans = [
@@ -8,11 +8,16 @@ const PricingSection = () => {
       period: '/mo',
       description: 'Perfect for getting started',
       features: [
-        '15 Auto video reel machine vid per month',
+        '15 Auto video reel machine videos per month',
         '40 minutes of export',
         '30 voiceover minutes',
-        '100 AI images'
-      ]
+        '100 AI images',
+        'Access to all copyright-free clips',
+        'Basic AI tools access',
+        'Email support'
+      ],
+      buttonText: 'Start Hobby Plan',
+      popular: false
     },
     {
       name: 'Clipper',
@@ -21,11 +26,17 @@ const PricingSection = () => {
       description: 'Most popular for creators',
       isPopular: true,
       features: [
-        '25 Auto video reel machine vid per month',
+        '25 Auto video reel machine videos per month',
         '2 hours of export',
         '120 voiceover minutes',
-        '300 AI images'
-      ]
+        '300 AI images',
+        'Unlimited copyright-free clips',
+        'All AI tools access',
+        'Priority support',
+        'Advanced voice cloning'
+      ],
+      buttonText: 'Start Clipper Plan',
+      popular: true
     },
     {
       name: 'Pro',
@@ -33,11 +44,18 @@ const PricingSection = () => {
       period: '/mo',
       description: 'For power users',
       features: [
-        '75 Auto video reel machine vid per month',
+        '75 Auto video reel machine videos per month',
         '3 hours of export',
         '180 voiceover minutes',
-        '500 AI images'
-      ]
+        '500 AI images',
+        'Unlimited copyright-free clips',
+        'All AI tools + premium features',
+        'Priority support',
+        'Custom voice training',
+        'Brand kit creation'
+      ],
+      buttonText: 'Start Pro Plan',
+      popular: false
     },
     {
       name: 'Agency',
@@ -45,13 +63,26 @@ const PricingSection = () => {
       period: '/mo',
       description: 'For teams and businesses',
       features: [
-        '200 Auto video reel machine vid per month',
+        '200 Auto video reel machine videos per month',
         '10 hours of export',
         '600 voiceover minutes',
-        '1000 AI images'
-      ]
+        '1000 AI images',
+        'Unlimited copyright-free clips',
+        'All features + team collaboration',
+        'Dedicated account manager',
+        'Custom integrations',
+        'White-label options',
+        'API access'
+      ],
+      buttonText: 'Start Agency Plan',
+      popular: false
     }
   ];
+
+  const handlePlanSelection = (planName: string) => {
+    // In a real application, this would redirect to a payment processor
+    alert(`Redirecting to payment for ${planName} plan. In production, this would integrate with Stripe, PayPal, or similar payment processor.`);
+  };
 
   return (
     <section id="pricing" className="py-16 md:py-24 bg-gray-50 dark:bg-black">
@@ -60,9 +91,18 @@ const PricingSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
             Choose Your Plan
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6">
             Scale your content creation with our flexible pricing options
           </p>
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4 rounded-lg max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Star className="text-yellow-500" size={20} />
+              <span className="font-semibold text-blue-800 dark:text-blue-300">Subscription Required</span>
+            </div>
+            <p className="text-blue-700 dark:text-blue-300 text-sm">
+              All AI tools, content packs, and features require an active subscription. Choose the plan that fits your content creation needs.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -71,7 +111,7 @@ const PricingSection = () => {
               key={plan.name}
               className={`relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg border ${
                 plan.isPopular 
-                  ? 'border-blue-500 dark:border-blue-400' 
+                  ? 'border-blue-500 dark:border-blue-400 transform scale-105' 
                   : 'border-gray-100 dark:border-gray-800'
               } p-8 transition-all duration-300 hover:shadow-xl hover:scale-105`}
             >
@@ -107,37 +147,63 @@ const PricingSection = () => {
                 {plan.features.map((feature, index) => (
                   <li
                     key={index}
-                    className="flex items-center text-gray-700 dark:text-gray-300"
+                    className="flex items-start text-gray-700 dark:text-gray-300"
                   >
-                    <svg
-                      className="w-5 h-5 text-green-500 mr-3 flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                    <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                     <span className="text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <button 
+                onClick={() => handlePlanSelection(plan.name)}
                 className={`w-full py-3 px-6 rounded-full text-center font-medium transition-all duration-300 ${
                   plan.isPopular
-                    ? 'bg-blue-500 hover:bg-blue-600 text-white'
-                    : 'bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 text-white dark:text-gray-900'
-                } hover:opacity-90`}
+                    ? 'bg-blue-500 hover:bg-blue-600 text-white shadow-lg hover:shadow-xl'
+                    : 'bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 text-white dark:text-gray-900 hover:opacity-90'
+                }`}
               >
-                Choose {plan.name}
+                {plan.buttonText}
               </button>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-800">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              🔒 Subscription Benefits
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Crown className="text-blue-600 dark:text-blue-400" size={24} />
+                </div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Full Access</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Unlock all AI tools, content packs, and premium features
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Check className="text-green-600 dark:text-green-400" size={24} />
+                </div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Copyright Free</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  All content is copyright-free and safe for commercial use
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="text-purple-600 dark:text-purple-400" size={24} />
+                </div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Priority Support</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Get help when you need it with our dedicated support team
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

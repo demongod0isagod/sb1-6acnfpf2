@@ -4,6 +4,13 @@ import { PlayCircle } from 'lucide-react';
 const Hero = () => {
   const { theme } = useTheme();
 
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative pt-20 overflow-hidden">
       {/* Background elements */}
@@ -37,23 +44,29 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="px-6 py-3 rounded-full font-medium bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-pink-500 text-white hover:shadow-lg hover:shadow-blue-500/25 dark:hover:shadow-pink-500/25 transition-all duration-300">
+              <button 
+                onClick={scrollToPricing}
+                className="px-6 py-3 rounded-full font-medium bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-500 dark:to-pink-500 text-white hover:shadow-lg hover:shadow-blue-500/25 dark:hover:shadow-pink-500/25 transition-all duration-300"
+              >
                 Start creating for free
               </button>
               
-              <button className="px-6 py-3 rounded-full font-medium border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-200 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-all flex items-center justify-center gap-2">
+              <button 
+                onClick={scrollToPricing}
+                className="px-6 py-3 rounded-full font-medium border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-200 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-all flex items-center justify-center gap-2"
+              >
                 <PlayCircle size={20} />
                 <span>See how it works</span>
               </button>
             </div>
           </div>
           
-          {/* Hero crown doodle art */}
+          {/* Hand-drawn crown doodle art */}
           <div className="flex-1 w-full max-w-lg">
             <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden transition-all">
               <div className="aspect-video bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center p-8">
-                {/* Crown Doodle Art */}
-                <svg width="280" height="200" viewBox="0 0 280 200" className="animate-pulse">
+                {/* Hand-drawn Crown Doodle Art */}
+                <svg width="320" height="240" viewBox="0 0 320 240" className="animate-pulse">
                   <defs>
                     <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#3b82f6" />
@@ -66,54 +79,79 @@ const Hero = () => {
                     </linearGradient>
                   </defs>
                   
-                  {/* Crown base */}
-                  <path d="M50 130 L230 130 L220 155 L60 155 Z" fill="url(#crownGradient)" stroke="#1e40af" strokeWidth="3"/>
+                  {/* Hand-drawn style crown base with slight imperfections */}
+                  <path d="M60 150 Q62 148 65 150 L255 150 Q258 148 260 150 L248 180 Q246 182 244 180 L76 180 Q74 182 72 180 Z" 
+                        fill="url(#crownGradient)" 
+                        stroke="#1e40af" 
+                        strokeWidth="3" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"/>
                   
-                  {/* Crown points */}
-                  <path d="M50 130 L75 75 L95 105 L140 55 L185 105 L205 75 L230 130" fill="url(#crownGradient)" stroke="#1e40af" strokeWidth="3"/>
+                  {/* Hand-drawn crown points with organic curves */}
+                  <path d="M60 150 Q62 148 65 145 L85 85 Q87 82 90 85 L105 120 Q107 123 110 120 L160 65 Q162 62 165 65 L210 120 Q212 123 215 120 L230 85 Q232 82 235 85 L255 145 Q257 148 260 150" 
+                        fill="url(#crownGradient)" 
+                        stroke="#1e40af" 
+                        strokeWidth="3" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"/>
                   
-                  {/* Main center gem */}
-                  <circle cx="140" cy="85" r="15" fill="url(#gemGradient)" stroke="#d97706" strokeWidth="3"/>
-                  <circle cx="140" cy="85" r="8" fill="#fef3c7" opacity="0.8"/>
+                  {/* Main center gem with hand-drawn style */}
+                  <circle cx="160" cy="95" r="18" fill="url(#gemGradient)" stroke="#d97706" strokeWidth="3"/>
+                  <circle cx="160" cy="95" r="10" fill="#fef3c7" opacity="0.8"/>
+                  <path d="M150 95 Q160 85 170 95 Q160 105 150 95" fill="#fff" opacity="0.6"/>
                   
-                  {/* Side gems */}
-                  <circle cx="85" cy="115" r="10" fill="#ef4444" stroke="#dc2626" strokeWidth="2"/>
-                  <circle cx="195" cy="115" r="10" fill="#10b981" stroke="#059669" strokeWidth="2"/>
+                  {/* Side gems with slight variations */}
+                  <circle cx="95" cy="125" r="12" fill="#ef4444" stroke="#dc2626" strokeWidth="2"/>
+                  <circle cx="95" cy="125" r="6" fill="#fecaca" opacity="0.7"/>
+                  
+                  <circle cx="225" cy="125" r="12" fill="#10b981" stroke="#059669" strokeWidth="2"/>
+                  <circle cx="225" cy="125" r="6" fill="#a7f3d0" opacity="0.7"/>
                   
                   {/* Small decorative gems */}
-                  <circle cx="105" cy="90" r="5" fill="#8b5cf6" stroke="#7c3aed" strokeWidth="1"/>
-                  <circle cx="175" cy="90" r="5" fill="#06b6d4" stroke="#0891b2" strokeWidth="1"/>
+                  <circle cx="115" cy="100" r="6" fill="#8b5cf6" stroke="#7c3aed" strokeWidth="1"/>
+                  <circle cx="205" cy="100" r="6" fill="#06b6d4" stroke="#0891b2" strokeWidth="1"/>
                   
-                  {/* Crown band decoration */}
-                  <rect x="70" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 74 139)"/>
-                  <rect x="110" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 114 139)"/>
-                  <rect x="140" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 144 139)"/>
-                  <rect x="170" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 174 139)"/>
-                  <rect x="210" y="135" width="8" height="8" fill="#fbbf24" transform="rotate(45 214 139)"/>
-                  
-                  {/* Sparkles around crown */}
-                  <g fill="#fbbf24" opacity="0.8">
-                    <path d="M30 65 L33 70 L38 68 L33 73 L30 78 L27 73 L22 68 L27 70 Z"/>
-                    <path d="M250 85 L253 90 L258 88 L253 93 L250 98 L247 93 L242 88 L247 90 Z"/>
-                    <path d="M60 40 L63 45 L68 43 L63 48 L60 53 L57 48 L52 43 L57 45 Z"/>
-                    <path d="M220 50 L223 55 L228 53 L223 58 L220 63 L217 58 L212 53 L217 55 Z"/>
+                  {/* Hand-drawn crown band decoration */}
+                  <g fill="#fbbf24" stroke="#f59e0b" strokeWidth="1">
+                    <path d="M80 155 L88 155 L84 163 Z" transform="rotate(45 84 159)"/>
+                    <path d="M120 155 L128 155 L124 163 Z" transform="rotate(45 124 159)"/>
+                    <path d="M160 155 L168 155 L164 163 Z" transform="rotate(45 164 159)"/>
+                    <path d="M200 155 L208 155 L204 163 Z" transform="rotate(45 204 159)"/>
+                    <path d="M240 155 L248 155 L244 163 Z" transform="rotate(45 244 159)"/>
                   </g>
                   
-                  {/* Floating sparkles with animation effect */}
+                  {/* Hand-drawn sparkles around crown */}
+                  <g fill="#fbbf24" opacity="0.8" stroke="#f59e0b" strokeWidth="1">
+                    <path d="M35 75 L38 82 L45 80 L38 87 L35 94 L32 87 L25 80 L32 82 Z"/>
+                    <path d="M285 95 L288 102 L295 100 L288 107 L285 114 L282 107 L275 100 L282 102 Z"/>
+                    <path d="M70 45 L73 52 L80 50 L73 57 L70 64 L67 57 L60 50 L67 52 Z"/>
+                    <path d="M250 55 L253 62 L260 60 L253 67 L250 74 L247 67 L240 60 L247 62 Z"/>
+                  </g>
+                  
+                  {/* Floating sparkles with hand-drawn style */}
                   <g fill="#3b82f6" opacity="0.6">
-                    <circle cx="40" cy="100" r="3"/>
-                    <circle cx="240" cy="120" r="3"/>
-                    <circle cx="70" cy="55" r="2"/>
-                    <circle cx="210" cy="65" r="2"/>
+                    <circle cx="45" cy="110" r="3"/>
+                    <circle cx="275" cy="130" r="3"/>
+                    <circle cx="80" cy="60" r="2"/>
+                    <circle cx="240" cy="70" r="2"/>
+                    <circle cx="50" cy="180" r="2"/>
+                    <circle cx="270" cy="170" r="2"/>
                   </g>
                   
-                  {/* Doodle-style decorative lines */}
-                  <g stroke="#6b7280" strokeWidth="2" fill="none" opacity="0.3">
-                    <path d="M20 170 Q30 165 40 170 T60 170"/>
-                    <path d="M220 170 Q230 165 240 170 T260 170"/>
-                    <path d="M15 90 Q25 85 35 90"/>
-                    <path d="M245 110 Q255 105 265 110"/>
+                  {/* Hand-drawn decorative lines and doodles */}
+                  <g stroke="#6b7280" strokeWidth="2" fill="none" opacity="0.3" strokeLinecap="round">
+                    <path d="M20 190 Q35 185 50 190 Q65 195 80 190"/>
+                    <path d="M240 190 Q255 185 270 190 Q285 195 300 190"/>
+                    <path d="M15 100 Q30 95 45 100"/>
+                    <path d="M275 120 Q290 115 305 120"/>
+                    <path d="M25 140 Q35 135 45 140"/>
+                    <path d="M275 140 Q285 135 295 140"/>
                   </g>
+                  
+                  {/* Hand-drawn text elements */}
+                  <text x="160" y="220" textAnchor="middle" className="fill-gray-500 dark:fill-gray-400 text-sm font-handwriting">
+                    Rule Your Kingdom
+                  </text>
                 </svg>
               </div>
               
