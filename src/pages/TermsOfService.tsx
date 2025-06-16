@@ -205,7 +205,7 @@ const TermsOfService = () => {
                 <li>Fraudulent or deceptive activities</li>
                 <li>Repeated policy violations</li>
                 <li>Non-payment of fees</li>
-                <li>Abuse of our support team or other users</li>
+                <li>Abuse of our team or other users</li>
               </ul>
               <p className="text-red-700 dark:text-red-300 mt-4 font-medium">
                 Upon termination, your access will be revoked and your data may be deleted without notice.

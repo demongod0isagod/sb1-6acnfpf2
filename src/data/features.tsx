@@ -17,7 +17,7 @@ export const features: Feature[] = [
       'Direct publishing to Instagram, TikTok, and YouTube Shorts',
       'Smart scheduling for optimal posting times',
       'Cross-platform content optimization',
-      'Detailed analytics and performance tracking'
+      'Basic performance insights'
     ]
   },
   {
@@ -29,7 +29,7 @@ export const features: Feature[] = [
       'Real-time comparison of original and edited content',
       'Interactive side-by-side view',
       'Adjust settings while comparing results',
-      'Histogram and quality analysis tools'
+      'Visual quality comparison tools'
     ]
   },
   {
@@ -59,10 +59,10 @@ export const features: Feature[] = [
   {
     id: 'theme-pack',
     title: 'Multiple Theme Options',
-    description: 'Each content pack comes with 3 theme variations',
+    description: 'Each content pack comes with customizable themes',
     icon: <Palette size={24} />,
     benefits: [
-      'Light, dark, and cinematic theme options',
+      'Multiple visual style options',
       'Custom color grading presets',
       'Audio-reactive visual elements',
       'Seasonal and trending theme updates'

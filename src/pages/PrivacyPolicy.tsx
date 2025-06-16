@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
                 <li><strong>Account Information:</strong> Name, email address, username, and password when you create an account</li>
                 <li><strong>Profile Information:</strong> Profile picture, bio, and other information you choose to provide</li>
                 <li><strong>Payment Information:</strong> Billing address and payment method details (processed securely through third-party payment processors)</li>
-                <li><strong>Communication Data:</strong> Messages, feedback, and correspondence with our support team</li>
+                <li><strong>Communication Data:</strong> Messages, feedback, and correspondence with our team</li>
               </ul>
             </div>
             
@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
                   <li>Provide and maintain our AI tools and services</li>
                   <li>Process your content generation requests</li>
                   <li>Manage your account and subscriptions</li>
-                  <li>Provide customer support and technical assistance</li>
+                  <li>Provide customer assistance</li>
                 </ul>
               </div>
               
@@ -105,7 +105,7 @@ const PrivacyPolicy = () => {
                 <li><strong>Account Data:</strong> Retained while your account is active</li>
                 <li><strong>Generated Content:</strong> Automatically deleted after 30 days unless saved</li>
                 <li><strong>Usage Analytics:</strong> Aggregated and anonymized after 12 months</li>
-                <li><strong>Support Communications:</strong> Retained for 2 years for quality assurance</li>
+                <li><strong>Communications:</strong> Retained for 2 years for quality assurance</li>
               </ul>
             </div>
           </section>
@@ -138,7 +138,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section className="mb-10">
-            <h2 className="text-3xl font-semibent mb-6 text-gray-900 dark:text-white">5. Cookies and Tracking</h2>
+            <h2 className="text-3xl font-semibold mb-6 text-gray-900 dark:text-white">5. Cookies and Tracking</h2>
             <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg">
               <h3 className="text-xl font-semibold mb-4 text-orange-800 dark:text-orange-300">Cookie Usage</h3>
               <div className="space-y-4">

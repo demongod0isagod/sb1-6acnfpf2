@@ -8,13 +8,18 @@ const PricingSection = () => {
       period: '/mo',
       description: 'Perfect for getting started',
       features: [
-        '15 Auto video reel machine videos per month',
+        '15 autopilot videos per month',
         '40 minutes of export',
         '30 voiceover minutes',
         '100 AI images',
-        'Access to all copyright-free clips',
-        'Basic AI tools access',
-        'Email support'
+        'Access to all copyright-free clips'
+      ],
+      tools: [
+        'Reel Factory',
+        'HookMagnet', 
+        'ReelWriter',
+        'VidVoice AI',
+        'TrendSnipe'
       ],
       buttonText: 'Start Hobby Plan',
       popular: false
@@ -26,14 +31,16 @@ const PricingSection = () => {
       description: 'Most popular for creators',
       isPopular: true,
       features: [
-        '25 Auto video reel machine videos per month',
+        '25 autopilot videos per month',
         '2 hours of export',
         '120 voiceover minutes',
         '300 AI images',
-        'Unlimited copyright-free clips',
-        'All AI tools access',
-        'Priority support',
-        'Advanced voice cloning'
+        'Unlimited copyright-free clips'
+      ],
+      tools: [
+        'All Hobby tools plus:',
+        'StoryReel',
+        'PodcastScripter'
       ],
       buttonText: 'Start Clipper Plan',
       popular: true
@@ -44,15 +51,16 @@ const PricingSection = () => {
       period: '/mo',
       description: 'For power users',
       features: [
-        '75 Auto video reel machine videos per month',
+        '75 autopilot videos per month',
         '3 hours of export',
         '180 voiceover minutes',
         '500 AI images',
-        'Unlimited copyright-free clips',
-        'All AI tools + premium features',
-        'Priority support',
-        'Custom voice training',
-        'Brand kit creation'
+        'Unlimited copyright-free clips'
+      ],
+      tools: [
+        'All Clipper tools plus:',
+        'AdCopyX',
+        'SmartResume AI'
       ],
       buttonText: 'Start Pro Plan',
       popular: false
@@ -63,16 +71,17 @@ const PricingSection = () => {
       period: '/mo',
       description: 'For teams and businesses',
       features: [
-        '200 Auto video reel machine videos per month',
-        '10 hours of export',
-        '600 voiceover minutes',
+        '100 autopilot videos per month',
+        '5 hours of export',
+        '260 voiceover minutes',
         '1000 AI images',
-        'Unlimited copyright-free clips',
-        'All features + team collaboration',
-        'Dedicated account manager',
-        'Custom integrations',
-        'White-label options',
-        'API access'
+        'Unlimited copyright-free clips'
+      ],
+      tools: [
+        'All Pro tools plus:',
+        'BrandBrew',
+        'AutoAgency',
+        'Team collaboration features'
       ],
       buttonText: 'Start Agency Plan',
       popular: false
@@ -82,6 +91,11 @@ const PricingSection = () => {
   const handlePlanSelection = (planName: string) => {
     // In a real application, this would redirect to a payment processor
     alert(`Redirecting to payment for ${planName} plan. In production, this would integrate with Stripe, PayPal, or similar payment processor.`);
+  };
+
+  const scrollToMarketplace = () => {
+    // This would navigate to the digital marketplace page
+    alert('Navigating to Digital Marketplace... In production, this would open the marketplace page.');
   };
 
   return (
@@ -113,7 +127,7 @@ const PricingSection = () => {
                 plan.isPopular 
                   ? 'border-blue-500 dark:border-blue-400 transform scale-105' 
                   : 'border-gray-100 dark:border-gray-800'
-              } p-8 transition-all duration-300 hover:shadow-xl hover:scale-105`}
+              } p-6 transition-all duration-300 hover:shadow-xl hover:scale-105`}
             >
               {plan.isPopular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -124,7 +138,7 @@ const PricingSection = () => {
                 </div>
               )}
               
-              <div className="text-center mb-8">
+              <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   {plan.name}
                 </h3>
@@ -143,17 +157,35 @@ const PricingSection = () => {
                 </p>
               </div>
 
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start text-gray-700 dark:text-gray-300"
-                  >
-                    <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Features:</h4>
+                <ul className="space-y-2">
+                  {plan.features.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start text-gray-700 dark:text-gray-300"
+                    >
+                      <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">AI Tools Included:</h4>
+                <ul className="space-y-2">
+                  {plan.tools.map((tool, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start text-gray-700 dark:text-gray-300"
+                    >
+                      <Star className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">{tool}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <button 
                 onClick={() => handlePlanSelection(plan.name)}
@@ -167,6 +199,27 @@ const PricingSection = () => {
               </button>
             </div>
           ))}
+        </div>
+
+        {/* Digital Marketplace Section */}
+        <div className="mt-16 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 shadow-lg border border-purple-100 dark:border-purple-800">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Crown className="text-white" size={24} />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              🛍️ Digital Marketplace - FREE
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+              Buy and sell digital products like templates, presets, and content packs. Just like Gumroad, but integrated into your content creation workflow.
+            </p>
+            <button 
+              onClick={scrollToMarketplace}
+              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
+            >
+              Explore Marketplace
+            </button>
+          </div>
         </div>
 
         <div className="mt-16 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-800">
@@ -197,9 +250,9 @@ const PricingSection = () => {
                 <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="text-purple-600 dark:text-purple-400" size={24} />
                 </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Priority Support</h4>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Regular Updates</h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Get help when you need it with our dedicated support team
+                  New tools, content packs, and features added regularly
                 </p>
               </div>
             </div>
