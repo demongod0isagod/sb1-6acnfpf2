@@ -2,7 +2,6 @@ import {
   Share2,
   SplitSquareVertical,
   Tv2,
-  Mic,
   Palette
 } from 'lucide-react';
 import { Feature } from '../types';
@@ -42,18 +41,6 @@ export const features: Feature[] = [
       'Customizable duration and effects',
       'Smart scene detection for perfect timing',
       'Transition presets for different content types'
-    ]
-  },
-  {
-    id: 'voice-clone',
-    title: 'AI Voice Cloning',
-    description: 'Clone any voice for professional voiceovers',
-    icon: <Mic size={24} />,
-    benefits: [
-      'Create voice clones with just 3 minutes of audio',
-      'Adjust tone, pitch, and emotion',
-      'Text-to-speech with natural inflection',
-      'Multi-language support'
     ]
   },
   {

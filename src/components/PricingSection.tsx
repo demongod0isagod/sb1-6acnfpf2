@@ -1,4 +1,4 @@
-import { Crown, Check, Star } from 'lucide-react';
+import { Crown, Check, Star, Shield } from 'lucide-react';
 
 const PricingSection = () => {
   const plans = [
@@ -12,13 +12,12 @@ const PricingSection = () => {
         '40 minutes of export',
         '30 voiceover minutes',
         '100 AI images',
-        'Access to all copyright-free clips'
+        'Limited copyright-free clips'
       ],
       tools: [
         'Reel Factory',
         'HookMagnet', 
         'ReelWriter',
-        'VidVoice AI',
         'TrendSnipe'
       ],
       buttonText: 'Start Hobby Plan',
@@ -80,8 +79,7 @@ const PricingSection = () => {
       tools: [
         'All Pro tools plus:',
         'BrandBrew',
-        'AutoAgency',
-        'Team collaboration features'
+        'AutoAgency'
       ],
       buttonText: 'Start Agency Plan',
       popular: false
@@ -89,8 +87,8 @@ const PricingSection = () => {
   ];
 
   const handlePlanSelection = (planName: string) => {
-    // In a real application, this would redirect to a payment processor
-    alert(`Redirecting to payment for ${planName} plan. In production, this would integrate with Stripe, PayPal, or similar payment processor.`);
+    // In a real application, this would redirect to Razorpay payment processor
+    alert(`Redirecting to Razorpay payment for ${planName} plan. Please integrate Razorpay payment gateway for secure transactions.`);
   };
 
   const scrollToMarketplace = () => {
@@ -201,24 +199,47 @@ const PricingSection = () => {
           ))}
         </div>
 
-        {/* Digital Marketplace Section */}
-        <div className="mt-16 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 shadow-lg border border-purple-100 dark:border-purple-800">
+        {/* Enhanced Security Section */}
+        <div className="mt-16 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8 shadow-lg border border-green-200 dark:border-green-800">
           <div className="text-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Crown className="text-white" size={24} />
+            <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Shield className="text-white" size={24} />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              🛍️ Digital Marketplace - FREE
+              🔒 Enterprise-Grade Security
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-              Buy and sell digital products like templates, presets, and content packs. Just like Gumroad, but integrated into your content creation workflow.
+              Your data and payments are protected with military-grade encryption and industry-leading security protocols.
             </p>
-            <button 
-              onClick={scrollToMarketplace}
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300"
-            >
-              Explore Marketplace
-            </button>
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Shield className="text-green-600 dark:text-green-400" size={20} />
+                </div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">SSL Encryption</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  256-bit SSL encryption for all data transmission
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Crown className="text-blue-600 dark:text-blue-400" size={20} />
+                </div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Secure Payments</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Razorpay integration for safe payment processing
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Star className="text-purple-600 dark:text-purple-400" size={20} />
+                </div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Data Protection</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  GDPR compliant with advanced privacy controls
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

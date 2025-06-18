@@ -30,8 +30,8 @@ const SubscriptionGate = ({ title, description, onUpgrade }: SubscriptionGatePro
           <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
             <li>• All AI-powered content tools</li>
             <li>• Unlimited copyright-free clips</li>
-            <li>• Voice cloning & generation</li>
-            <li>• Priority support</li>
+            <li>• Professional video generation</li>
+            <li>• Advanced automation features</li>
           </ul>
         </div>
         
@@ -44,7 +44,7 @@ const SubscriptionGate = ({ title, description, onUpgrade }: SubscriptionGatePro
         </button>
         
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          7-day money-back guarantee • Cancel anytime
+          Secure payments via Razorpay • Enterprise-grade security
         </p>
       </div>
     </div>

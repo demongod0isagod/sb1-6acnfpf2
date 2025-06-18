@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import SubscriptionGate from './components/SubscriptionGate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Marketplace from './pages/Marketplace';
 import { useSubscription } from './contexts/SubscriptionContext';
 
 function HomePage() {
@@ -59,6 +60,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/marketplace" element={<Marketplace />} />
             </Routes>
           </div>
         </Router>

@@ -1,14 +1,12 @@
 import { 
   MessageSquare, 
   FileText, 
-  Mic, 
   Palette, 
   Phone, 
   TrendingUp, 
   Bot, 
   FileSpreadsheet, 
   MessageCircle, 
-  Diamond, 
   Radio,
   Video
 } from 'lucide-react';
@@ -50,18 +48,6 @@ export const AITools: Tool[] = [
     bgColor: 'bg-purple-500',
     bgColorHover: 'bg-purple-600',
     isNew: false
-  },
-  {
-    id: 'vid-voice',
-    name: 'VidVoice AI',
-    description: 'Clone voices and generate professional voiceovers',
-    emoji: '🗣️',
-    icon: <Mic size={24} />,
-    category: 'Audio',
-    gradient: 'from-red-500 to-orange-500',
-    bgColor: 'bg-red-500',
-    bgColorHover: 'bg-red-600',
-    isNew: true
   },
   {
     id: 'brand-brew',
@@ -134,18 +120,6 @@ export const AITools: Tool[] = [
     bgColor: 'bg-pink-500',
     bgColorHover: 'bg-pink-600',
     isNew: false
-  },
-  {
-    id: 'digital-market',
-    name: 'Digital Market',
-    description: 'Sell digital products and monetize your content',
-    emoji: '💎',
-    icon: <Diamond size={24} />,
-    category: 'Marketplace',
-    gradient: 'from-teal-500 to-cyan-500',
-    bgColor: 'bg-teal-500',
-    bgColorHover: 'bg-teal-600',
-    isNew: true
   },
   {
     id: 'podcast-scripter',

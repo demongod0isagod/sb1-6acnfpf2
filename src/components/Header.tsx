@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import { Sun, Moon, Menu, X, Crown } from 'lucide-react';
+import { Sun, Moon, Menu, X, Crown, Diamond } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +31,11 @@ const Header = () => {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false);
+  };
+
+  const goToMarketplace = () => {
+    navigate('/marketplace');
     setIsMenuOpen(false);
   };
 
@@ -81,6 +88,14 @@ const Header = () => {
             Get Started
           </button>
           <button
+            onClick={goToMarketplace}
+            className="p-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all"
+            aria-label="Digital Marketplace"
+            title="Digital Marketplace"
+          >
+            <Diamond size={20} className="text-white" />
+          </button>
+          <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             aria-label="Toggle theme"
@@ -91,6 +106,13 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4 md:hidden">
+          <button
+            onClick={goToMarketplace}
+            className="p-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all"
+            aria-label="Digital Marketplace"
+          >
+            <Diamond size={20} className="text-white" />
+          </button>
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -138,6 +160,13 @@ const Header = () => {
             className="text-gray-700 dark:text-gray-200 hover:text-yellow-600 dark:hover:text-yellow-400 py-2 transition-colors text-left"
           >
             Features
+          </button>
+          <button 
+            onClick={goToMarketplace}
+            className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 py-2 transition-colors text-left flex items-center gap-2"
+          >
+            <Diamond size={16} />
+            Digital Marketplace
           </button>
           <button
             onClick={scrollToPricing}
